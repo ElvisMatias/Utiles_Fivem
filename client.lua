@@ -166,7 +166,10 @@ Citizen.CreateThread(function()
 end)
 
 -- si quieres desactivar los sonidos ambientales de tu servidor, como sonidos de sirenas NPC, disparos NPC o dialogos molestosos, aca tienes
-StartAudioScene('CHARACTER_CHANGE_IN_SKY_SCENE') -- pegala en cualquier client.lua de tu servidor
+Citizen.CreateThread(function()
+	StartAudioScene('CHARACTER_CHANGE_IN_SKY_SCENE')
+	SetAudioFlag("PoliceScannerDisabled", true)
+end)
 
 ---- Funcion que añade BLIPS a donde tu quieras posicionarlos en el mapa ---
 local blips = {
